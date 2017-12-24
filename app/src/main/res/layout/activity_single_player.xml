@@ -1,0 +1,73 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fullscreen_content"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="#000000"
+    android:padding="30dp"
+    tools:context="nettleton.sam.faceoffv2.SinglePlayer">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="20dp"
+        android:keepScreenOn="true"
+        android:text="@string/difficulty_title"
+        android:textColor="#42aaf4"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"/>
+
+    <Button
+        android:id="@+id/start_easy_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="20dp"
+        android:text="@string/easy_mode"
+        android:textColor="#42aaf4"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:fontFamily="sans-serif-condensed"/>
+
+    <Button
+        android:id="@+id/start_med_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="20dp"
+        android:text="@string/med_mode"
+        android:textColor="#42aaf4"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:fontFamily="sans-serif-condensed"/>
+
+    <Button
+        android:id="@+id/start_hard_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="20dp"
+        android:text="@string/hard_mode"
+        android:textColor="#42aaf4"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:fontFamily="sans-serif-condensed"/>
+
+
+    <LinearLayout
+        android:id="@+id/fullscreen_content_controls"
+        style="?metaButtonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@color/black_overlay"
+        android:orientation="horizontal"
+        tools:ignore="UselessParent">
+    </LinearLayout>
+
+
+</LinearLayout>

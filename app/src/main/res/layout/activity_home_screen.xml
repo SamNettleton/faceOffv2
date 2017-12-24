@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="30dp"
+    android:background="#000000"
+    tools:context="nettleton.sam.faceoffv2.HomeScreen">
+
+    <TextView
+        android:id="@+id/fullscreen_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="0dp"
+        android:keepScreenOn="true"
+        android:text="@string/app_title"
+        android:textColor="#f44141"
+        android:textSize="54sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"/>
+
+    <ImageView
+        android:id="@+id/cube_animation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="5dp"/>
+
+    <Button
+        android:id="@+id/start_single_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="20dp"
+        android:text="@string/start_single"
+        android:textColor="#42aaf4"
+        android:textSize="14sp"
+        android:textAllCaps="false"
+        android:fontFamily="sans-serif-condensed"/>
+
+    <Button
+        android:id="@+id/start_multi_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="20dp"
+        android:text="@string/start_multi"
+        android:textColor="#42aaf4"
+        android:textSize="14sp"
+        android:textAllCaps="false"
+        android:fontFamily="sans-serif-condensed"/>
+
+</LinearLayout>

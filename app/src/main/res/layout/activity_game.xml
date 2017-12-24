@@ -1,0 +1,32 @@
+<android.support.v7.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fullscreen_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="#000000"
+    android:padding="30dp"
+    app:columnCount="1"
+    app:rowCount="3"
+    tools:context="nettleton.sam.faceoffv2.Game">
+
+    <TextView
+        android:id="@+id/info_text"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/info_box_blue"
+        android:textSize="20sp"
+        android:textColor="#AFAFAF"
+        android:gravity="center_horizontal"
+        app:layout_gravity="center|fill_vertical|fill_horizontal"
+        app:layout_rowWeight="1"/>
+
+    <context.DrawView
+        android:id="@+id/game_cube"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+</android.support.v7.widget.GridLayout>

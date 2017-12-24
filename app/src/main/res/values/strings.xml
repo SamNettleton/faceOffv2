@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">FaceOff</string>
+    <string name="app_title">Face Off!</string>
+    <string name="start_single">Single Player</string>
+    <string name="start_multi">Multiplayer</string>
+    <string name="easy_mode">Easy</string>
+    <string name="med_mode">Medium</string>
+    <string name="hard_mode">Hard</string>
+    <string name="local_mode">Local</string>
+    <string name="online_mode">Online</string>
+    <string name="multiplayer_title">Select a Game Type</string>
+    <string name="difficulty_title">Select a Difficulty</string>
+    <string name="title_activity_single_player">SinglePlayer</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_multi_player">MultiPlayer</string>
+    <string name="title_activity_multi_game">MultiGame</string>
+    <string name="title_activity_local_game">LocalGame</string>
+    <string name="title_activity_game">Game</string>
+    <string name="title_activity_multiplayer">Multiplayer</string>
+    <string name="button_confirm">Confirm</string>
+    <string name="info_box_blue">Blue\'s Turn</string>
+    <string name="info_box_red">Red\'s Turn</string>
+    <string name="winner_blue">Blue Wins! (tap to play again)</string>
+    <string name="winner_red">Red Wins! (tap to play again)</string>
+    <string name="tie_game">It\'s a tie! (tap to play again)</string>
+    <string name="title_activity_game2">Game2</string>
+</resources>
