@@ -1,7 +1,9 @@
 package nettleton.sam.faceoffv2;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -49,6 +51,29 @@ public class Game extends AppCompatActivity {
                 return false;
             }
         });
+
+    }
+
+    @Override
+    public void onBackPressed(){
+        AlertDialog.Builder ab = new AlertDialog.Builder(Game.this);
+        ab.setTitle("Confirm Exit");
+        ab.setMessage("Are you sure you want to end the game?");
+        ab.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                resetBoard();
+                Game.this.finish();
+            }
+        });
+        ab.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        ab.show();
     }
 
     public void startGame() {
@@ -172,15 +197,19 @@ public class Game extends AppCompatActivity {
     }
 
     public void newGame() {
+        resetBoard();
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
+    }
+
+    public void resetBoard() {
         for (int i = 0; (i < board.length); i++) {
             board[i] = 0;
         }
         DrawView.txt = getResources().getString(R.string.info_box_blue);
         turnCount = 0;
         gameFinished = false;
-        Intent intent = getIntent();
-        finish();
-        startActivity(intent);
     }
 
     public void AIMove() {

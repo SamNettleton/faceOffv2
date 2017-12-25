@@ -1,15 +1,11 @@
 package nettleton.sam.faceoffv2;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
-import java.util.stream.Collectors;
-
 
 class MediumAI extends StrategyFormat {
     private Integer[] case1 = new Integer[] {0, 1, 2, 3};
@@ -42,78 +38,76 @@ class MediumAI extends StrategyFormat {
 
     public int playMethod(){
         List<Integer> available = new ArrayList<>();
-        List<Integer> suggested = new ArrayList<>();
+        List<Integer> priority1 = new ArrayList<>();
+        List<Integer> priority2 = new ArrayList<>();
+        List<Integer> priority3 = new ArrayList<>();
+        int aiError = new Random().nextInt(100);
         for (Integer i = 0; i < Game.board.length; i++) {
             if (Game.board[i] == 0) {
                 available.add(i);
             }
         }
         for (int i = 0; i < winCases.length; i++) {
-            List<Integer> three = new ArrayList<>(threeFace(winCases[i]));
-            if (three.size() == 1) {
-                //Log.d("P2COUNT", Integer.toString(three.get(0)));
-                //Log.d("P2COUNT", Integer.toString(suggested.size()));
-                suggested.addAll(three);
+            List<List<Integer>> faceData = new ArrayList<>(numFace(winCases[i]));
+            if (faceData.get(0).size() == 1) {
+                priority1.addAll(faceData.get(0));
+            }
+            //if you can block a winning move, set it as priority 2
+            if (faceData.get(1).size() == 1) {
+                priority2.addAll(faceData.get(1));
+            }
+            //if there are any uncontested faces with 2, place there
+            if (faceData.get(0).size() == 2) {
+                priority3.addAll(faceData.get(0));
+            }
+            if (faceData.get(1).size() == 2) {
+                priority3.addAll(faceData.get(1));
             }
         }
-        if (suggested.size() != 0) {
-            //Log.d("P2COUNT", "Made it! 1");
-            return suggested.get(new Random().nextInt(suggested.size()));
+        if (priority1.size() > 0) {
+            return priority1.get(new Random().nextInt(priority1.size()));
         }
-        //Log.d("P2COUNT", "Made it! 2");
-        for (int i = 0; i < winCases.length; i++) {
-                List<Integer> two = new ArrayList<>(twoFace(winCases[i]));
-                if (two.size() == 2) {
-                    suggested.addAll(two);
+        if (priority2.size() > 0 && aiError < 75) {
+            return priority2.get(new Random().nextInt(priority2.size()));
+        }
+        if (priority3.size() > 0 && aiError < 50) {
+            return priority3.get(new Random().nextInt(priority3.size()));
+        }
+        return available.get(new Random().nextInt(available.size()));
+
+    }
+
+    private List<List<Integer>> numFace(Integer[] face) {
+        List<Integer> aiCount = new ArrayList<>();
+        List<Integer> playerCount = new ArrayList<>();
+        List<Integer> aiNeeded = new ArrayList<>();
+        List<Integer> playerNeeded = new ArrayList<>();
+        for (Integer i = 0; i < face.length; i++) {
+            if (Game.aiFirst) {
+                if (Game.board[face[i]] == 1) {
+                    aiCount.add(face[i]);
+                } else if (Game.board[face[i]] == 2) {
+                    playerCount.add(face[i]);
+                }
+            } else {
+                if (Game.board[face[i]] == 2) {
+                    aiCount.add(face[i]);
+                } else if (Game.board[face[i]] == 1) {
+                    playerCount.add(face[i]);
                 }
             }
-        if (suggested.size() != 0) {
-            return suggested.get(new Random().nextInt(suggested.size()));
-        }
-        else {
-            return available.get(new Random().nextInt(available.size()));
-        }
-    }
-
-    private List<Integer> threeFace(Integer[] face) {
-        List<Integer> p1count = new ArrayList<>();
-        List<Integer> p2count = new ArrayList<>();
-        for (Integer i = 0; i < face.length; i++) {
-            if (Game.board[face[i]] == 1) {
-                p1count.add(face[i]);
-            } else if (Game.board[face[i]] == 2) {
-                p2count.add(face[i]);
-            }
         }
         List<Integer> faceList = Arrays.asList(face);
-        if ((p1count.size() == 3) && (p2count.size() == 0)) {
-            faceList = subtract(faceList, p1count);
+        if ((aiCount.size() > 0) && (playerCount.size() == 0)) {
+            aiNeeded = subtract(faceList, aiCount);
         }
-        if ((p2count.size() == 3) && (p1count.size() == 0)) {
-
-            faceList = subtract(faceList, p2count);
+        if ((playerCount.size() > 0) && (aiCount.size() == 0)) {
+            playerNeeded = subtract(faceList, playerCount);
         }
-        return faceList;
-    }
-
-    private List<Integer> twoFace(Integer[] face) {
-        List<Integer> p1count = new ArrayList<>();
-        List<Integer> p2count = new ArrayList<>();
-        for (Integer i = 0; i < face.length; i++) {
-            if (Game.board[face[i]] == 1) {
-                p1count.add(face[i]);
-            } else if (Game.board[face[i]] == 2) {
-                p2count.add(face[i]);
-            }
-        }
-        List<Integer> faceList = Arrays.asList(face);
-        if ((p1count.size() == 2) && (p2count.size() == 0)) {
-            faceList = subtract(faceList, p1count);
-        }
-        if ((p2count.size() == 2) && (p1count.size() == 0)) {
-            faceList = subtract(faceList, p2count);
-        }
-        return faceList;
+        List<List<Integer>> result = new ArrayList<>();
+        result.add(aiNeeded);
+        result.add(playerNeeded);
+        return result;
     }
 
     private <T> List<T> subtract(List<T> list1, List<T> list2) {

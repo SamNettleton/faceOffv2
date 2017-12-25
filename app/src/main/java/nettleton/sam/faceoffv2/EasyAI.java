@@ -52,7 +52,8 @@ class EasyAI extends StrategyFormat {
                 suggested.addAll(three);
             }
         }
-        if (suggested.size() != 0) {
+        int aiError = new Random().nextInt(100);
+        if (suggested.size() != 0 && aiError < 60) {
             return suggested.get(new Random().nextInt(suggested.size()));
         } else {
             //int aiChoice = available.get(new Random().nextInt(available.size()));
@@ -74,11 +75,8 @@ class EasyAI extends StrategyFormat {
         if ((p1count.size() == 3) && (p2count.size() == 0)) {
             faceList = subtract(faceList, p1count);
         }
-        Log.d("P2COUNT", "Made it! 0");
         if ((p2count.size() == 3) && (p1count.size() == 0)) {
-            Log.d("P2COUNT", "Made it! 1");
             faceList = subtract(faceList, p2count);
-            Log.d("P2COUNT", "Made it! 2");
         }
         return faceList;
     }
