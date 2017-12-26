@@ -7,7 +7,7 @@
     <string name="med_mode">Medium</string>
     <string name="hard_mode">Hard</string>
     <string name="local_mode">Local</string>
-    <string name="online_mode">Online</string>
+    <string name="online_mode">Online (Coming soon!)</string>
     <string name="multiplayer_title">Select a Game Type</string>
     <string name="difficulty_title">Select a Difficulty</string>
     <string name="title_activity_single_player">SinglePlayer</string>
@@ -25,4 +25,19 @@
     <string name="winner_red">Red Wins! (tap to play again)</string>
     <string name="tie_game">It\'s a tie! (tap to play again)</string>
     <string name="title_activity_game2">Game2</string>
+    <string name="tutorial0">Hello! Welcome to Face Off! -
+        This is a tutorial that will help you get - started&#8230;</string>
+    <string name="tutorial1">Face Off is played on a 4D cube, which - has 24 faces&#8230; - \n</string>
+    <string name="tutorial2">Your goal is to claim 4 points on a face - before your opponent! -
+        An example is shown above&#8230;</string>
+    <string name="tutorial3">Here is another example of how you - could win&#8230; - \n </string>
+    <string name="tutorial4">And another!&#8230; - \n - \n</string>
+    <string name="tutorial5">Now let\'s play! - Tap the highlighted point&#8230; - \n</string>
+    <string name="tutorial6">Nice job! Keep going&#8230; - \n - \n </string>
+    <string name="tutorial7">Almost there&#8230; - \n - \n </string>
+    <string name="tutorial8">Sometimes your opponent might - \n block you&#8230; - \n </string>
+    <string name="tutorial9">Luckily, there are other options!&#8230; - \n - \n </string>
+    <string name="tutorial10">Place the last dot to win!&#8230; - \n - \n </string>
+    <string name="tutorial11">Nice job! - You\'re a Face Off expert now!&#8230; - \n </string>
+    <string name="follow_directions">You\'re not an expert yet! - Tap the highlighted point&#8230; - \n </string>
 </resources>

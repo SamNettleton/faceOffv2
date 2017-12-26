@@ -24,9 +24,15 @@ public class Multiplayer extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),Game.class);
-                HomeScreen.gameType = "LOCALGAME";
-                startActivity(i);
+                if (!HomeScreen.tutorialCompleted) {
+                    Intent i = new Intent(getApplicationContext(),Tutorial.class);
+                    HomeScreen.gameType = "TUTORIALGAME";
+                    startActivity(i);
+                } else {
+                    Intent i = new Intent(getApplicationContext(),Game.class);
+                    HomeScreen.gameType = "LOCALGAME";
+                    startActivity(i);
+                }
             }
         });
 
@@ -35,9 +41,15 @@ public class Multiplayer extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),Game.class);
-                HomeScreen.gameType = "ONLINEGAME";
-                startActivity(i);
+                if (!HomeScreen.tutorialCompleted) {
+                    Intent i = new Intent(getApplicationContext(),Tutorial.class);
+                    HomeScreen.gameType = "TUTORIALGAME";
+                    startActivity(i);
+                } else {
+                    //Intent i = new Intent(getApplicationContext(),Game.class);
+                    HomeScreen.gameType = "ONLINEGAME";
+                    //startActivity(i);
+                }
             }
         });
     }

@@ -1,6 +1,7 @@
 package nettleton.sam.faceoffv2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -13,11 +14,14 @@ import android.widget.ImageView;
 public class HomeScreen extends AppCompatActivity {
 
     public static String gameType = "LOCALOPTION";
+    public static boolean tutorialCompleted = false;
     AnimationDrawable cubeAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences settingSave = this.getSharedPreferences("settingSave", MODE_PRIVATE);
+        tutorialCompleted = settingSave.getBoolean("tutorialCompleted", false);
         setContentView(R.layout.activity_home_screen);
 
         ImageView cubeImage = (ImageView) findViewById(R.id.cube_animation);

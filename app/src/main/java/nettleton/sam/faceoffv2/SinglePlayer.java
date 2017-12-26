@@ -24,9 +24,15 @@ public class SinglePlayer extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),Game.class);
-                HomeScreen.gameType = "EASYGAME";
-                startActivity(i);
+                if (!HomeScreen.tutorialCompleted) {
+                    Intent i = new Intent(getApplicationContext(),Tutorial.class);
+                    HomeScreen.gameType = "TUTORIALGAME";
+                    startActivity(i);
+                } else {
+                    Intent i = new Intent(getApplicationContext(), Game.class);
+                    HomeScreen.gameType = "EASYGAME";
+                    startActivity(i);
+                }
             }
         });
         Button mediumGame = (Button)findViewById(R.id.start_med_button);
@@ -34,9 +40,15 @@ public class SinglePlayer extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),Game.class);
-                HomeScreen.gameType = "MEDIUMGAME";
-                startActivity(i);
+                if (!HomeScreen.tutorialCompleted) {
+                    Intent i = new Intent(getApplicationContext(),Tutorial.class);
+                    HomeScreen.gameType = "TUTORIALGAME";
+                    startActivity(i);
+                } else {
+                    Intent i = new Intent(getApplicationContext(),Game.class);
+                    HomeScreen.gameType = "MEDIUMGAME";
+                    startActivity(i);
+                }
             }
         });
         Button hardGame = (Button)findViewById(R.id.start_hard_button);
@@ -44,9 +56,16 @@ public class SinglePlayer extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),Game.class);
-                HomeScreen.gameType = "HARDGAME";
-                startActivity(i);
+                if (!HomeScreen.tutorialCompleted) {
+                    Intent i = new Intent(getApplicationContext(),Tutorial.class);
+                    HomeScreen.gameType = "TUTORIALGAME";
+                    startActivity(i);
+                } else {
+                    Intent i = new Intent(getApplicationContext(),Game.class);
+                    HomeScreen.gameType = "HARDGAME";
+                    startActivity(i);
+                }
+
             }
         });
     }
