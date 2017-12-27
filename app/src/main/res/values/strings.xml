@@ -11,7 +11,7 @@
     <string name="multiplayer_title">Select a Game Type</string>
     <string name="difficulty_title">Select a Difficulty</string>
     <string name="title_activity_single_player">SinglePlayer</string>
-    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_buttaon">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_multi_player">MultiPlayer</string>
     <string name="title_activity_multi_game">MultiGame</string>
@@ -26,7 +26,7 @@
     <string name="tie_game">It\'s a tie! (tap to play again)</string>
     <string name="title_activity_game2">Game2</string>
     <string name="tutorial0">Hello! Welcome to Face Off! -
-        This is a tutorial that will help you get - started&#8230;</string>
+        This is a tutorial that will help you get - started&#8230; (Tap anywhere to continue)</string>
     <string name="tutorial1">Face Off is played on a 4D cube, which - has 24 faces&#8230; - \n</string>
     <string name="tutorial2">Your goal is to claim 4 points on a face - before your opponent! -
         An example is shown above&#8230;</string>
@@ -38,6 +38,18 @@
     <string name="tutorial8">Sometimes your opponent might - \n block you&#8230; - \n </string>
     <string name="tutorial9">Luckily, there are other options!&#8230; - \n - \n </string>
     <string name="tutorial10">Place the last dot to win!&#8230; - \n - \n </string>
-    <string name="tutorial11">Nice job! - You\'re a Face Off expert now!&#8230; - \n </string>
+    <string name="tutorial11">Nice job! - You\'re a Face Off expert now! - \n </string>
     <string name="follow_directions">You\'re not an expert yet! - Tap the highlighted point&#8230; - \n </string>
+    <string name="achievements_title">Game Stats</string>
+    <string name="stats_title">Level [win - loss - draw]</string>
+    <string name="fastest_title">AI Difficulty Level - Fastest Win (Moves)</string>
+    <string name="settings_title">Settings</string>
+    <string name="contact_label">Contact Me</string>
+    <string name="contact_description">For requests, issues, or questions</string>
+    <string name="music_label">Music</string>
+    <string name="reset_stats">Reset Stats</string>
+    <string name="replay_tutorial">Play Tutorial</string>
+    <string name="acknowledgements_title">Acknowledgements</string>
+    <string name="music_acknowledge">Music: "Perth 2" from parachutemusic</string>
+    <string name="cook_acknowledge">Game Concept: Dr. Diane Cook</string>
 </resources>

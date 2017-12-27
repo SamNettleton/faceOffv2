@@ -58,24 +58,29 @@ public class Game extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-        AlertDialog.Builder ab = new AlertDialog.Builder(Game.this);
-        ab.setTitle("Confirm Exit");
-        ab.setMessage("Are you sure you want to end the game?");
-        ab.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-                resetBoard();
-                Game.this.finish();
-            }
-        });
-        ab.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-        ab.show();
+        if (turnCount > 1) {
+            AlertDialog.Builder ab = new AlertDialog.Builder(Game.this);
+            ab.setTitle("Confirm Exit");
+            ab.setMessage("Are you sure you want to end the game?");
+            ab.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                    resetBoard();
+                    Game.this.finish();
+                }
+            });
+            ab.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            ab.show();
+        }
+        else {
+            Game.this.finish();
+        }
     }
 
     public void startGame() {
@@ -182,14 +187,16 @@ public class Game extends AppCompatActivity {
                 for (int j = 0; j < 4; j++) {
                     //turn the winning points winning color
                     board[winCases[i][j]] = 3;
-                    //change the message to the winning message
-                    DrawView.txt = winMessages[turnCount % 2];
-                    gameFinished = true;
                 }
+                //change the message to the winning message
+                DrawView.txt = winMessages[turnCount % 2];
+                gameFinished = true;
+                updateStats();
             }
         }
         if (turnCount == 16 && !gameFinished) {
             DrawView.txt = winMessages[2];
+            updateStats();
             gameFinished = true;
         }
         if ((!HomeScreen.gameType.equals("LOCALGAME") && !gameFinished) &&
@@ -220,6 +227,111 @@ public class Game extends AppCompatActivity {
                 int aiChoice = playStyle.playMethod();
                 checkPoint(aiChoice);
             }
+    }
+
+    public void updateStats() {
+        SharedPreferences settingSave = this.getSharedPreferences("settingSave", MODE_PRIVATE);
+        SharedPreferences.Editor edit = settingSave.edit();
+        if (HomeScreen.gameType.equals("EASYGAME")) {
+            if (!gameFinished) {
+                HomeScreen.easyStats[2] += 1;
+            } else {
+                if (aiFirst) {
+                    Log.d("STATS", "aiFirst");
+                    if (turnCount % 2 == 0) {
+                        HomeScreen.easyStats[0] += 1;
+                        Log.d("STATS", "playerWon");
+                        if (turnCount < HomeScreen.fastestWins[0]) {
+                            HomeScreen.fastestWins[0] = turnCount;
+                            edit.putInt("fastestEasy", turnCount);
+                        }
+                    } else {
+                        HomeScreen.easyStats[1] += 1;
+                        Log.d("STATS", "playerLost");
+                    }
+                }
+                else {
+                    Log.d("STATS", "aiFirst");
+                    if (turnCount % 2 == 0) {
+                        HomeScreen.easyStats[1] += 1;
+                        Log.d("STATS", "playerLost");
+                    } else {
+                        HomeScreen.easyStats[0] += 1;
+                        Log.d("STATS", "playerWon");
+                        if (turnCount < HomeScreen.fastestWins[0]) {
+                            HomeScreen.fastestWins[0] = turnCount;
+                            edit.putInt("fastestEasy", turnCount);
+                        }
+                    }
+                }
+            }
+            edit.putInt("easyWins", HomeScreen.easyStats[0]);
+            edit.putInt("easyLosses", HomeScreen.easyStats[1]);
+            edit.putInt("easyTies", HomeScreen.easyStats[2]);
+            edit.apply();
+        }
+        if (HomeScreen.gameType.equals("MEDIUMGAME")) {
+            if (!gameFinished) {
+                HomeScreen.mediumStats[2] += 1;
+            } else {
+                if (aiFirst) {
+                    if (turnCount % 2 == 0) {
+                        HomeScreen.mediumStats[0] += 1;
+                        if (turnCount < HomeScreen.fastestWins[1]) {
+                            HomeScreen.fastestWins[1] = turnCount;
+                            edit.putInt("fastestMedium", turnCount);
+                        }
+                    } else {
+                        HomeScreen.mediumStats[1] += 1;
+                    }
+                } else {
+                    if (turnCount % 2 == 0) {
+                        HomeScreen.mediumStats[1] += 1;
+                    } else {
+                        HomeScreen.mediumStats[0] += 1;
+                        if (turnCount < HomeScreen.fastestWins[1]) {
+                            HomeScreen.fastestWins[1] = turnCount;
+                            edit.putInt("fastestMedium", turnCount);
+                        }
+                    }
+                }
+            }
+            edit.putInt("mediumWins", HomeScreen.mediumStats[0]);
+            edit.putInt("mediumLosses", HomeScreen.mediumStats[1]);
+            edit.putInt("mediumTies", HomeScreen.mediumStats[2]);
+            edit.apply();
+        }
+        if (HomeScreen.gameType.equals("HARDGAME")) {
+            if (!gameFinished) {
+                HomeScreen.hardStats[2] += 1;
+            } else {
+                if (aiFirst) {
+                    if (turnCount % 2 == 0) {
+                        HomeScreen.hardStats[0] += 1;
+                        if (turnCount < HomeScreen.fastestWins[2]) {
+                            HomeScreen.fastestWins[2] = turnCount;
+                            edit.putInt("fastestHard", turnCount);
+                        }
+                    } else {
+                        HomeScreen.hardStats[1] += 1;
+                    }
+                } else {
+                    if (turnCount % 2 == 0) {
+                        HomeScreen.hardStats[1] += 1;
+                    } else {
+                        HomeScreen.hardStats[0] += 1;
+                        if (turnCount < HomeScreen.fastestWins[2]) {
+                            HomeScreen.fastestWins[2] = turnCount;
+                            edit.putInt("fastestHard", turnCount);
+                        }
+                    }
+                }
+            }
+        }
+        edit.putInt("hardWins", HomeScreen.hardStats[0]);
+        edit.putInt("hardLosses", HomeScreen.hardStats[1]);
+        edit.putInt("hardTies", HomeScreen.hardStats[2]);
+        edit.apply();
     }
 
 }

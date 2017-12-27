@@ -43,6 +43,8 @@ public class Tutorial extends AppCompatActivity {
                         edit.apply();
                         DrawView.txt = getResources().getString(R.string.info_box_blue);
                         HomeScreen.tutorialCompleted = true;
+                        HomeScreen.gameType = "EASYGAME";
+                        stepCount = -1;
                         finish();
                     }
                     //all the steps that have a message, but don't require a click in a specific spot

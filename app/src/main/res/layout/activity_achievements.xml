@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="10dp"
+    android:background="#000000"
+    tools:context="nettleton.sam.faceoffv2.Achievements">
+
+    <TextView android:id="@+id/achievements_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="top"
+        android:layout_alignParentTop="true"
+        android:text="@string/achievements_title"
+        android:textColor="#f44141"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"/>
+
+    <View android:id="@+id/stats_separator"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@id/achievements_title"/>
+
+    <TextView android:id="@+id/stats_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stats_separator"
+        android:layout_centerHorizontal="true"
+        android:text="@string/stats_title"
+        android:textColor="#42aaf4"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"/>
+
+    <TextView android:id="@+id/easy_stats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stats_title"
+        android:layout_centerHorizontal="true"
+        android:text="@string/stats_title"
+        android:textColor="#42aaf4"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-condensed"/>
+
+    <TextView android:id="@+id/medium_stats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/easy_stats"
+        android:layout_centerHorizontal="true"
+        android:text="@string/stats_title"
+        android:textColor="#42aaf4"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-condensed"/>
+
+    <TextView android:id="@+id/hard_stats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/medium_stats"
+        android:layout_centerHorizontal="true"
+        android:text="@string/stats_title"
+        android:textColor="#42aaf4"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-condensed"/>
+
+    <View android:id="@+id/stats_separator1"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@id/hard_stats"/>
+
+    <TextView android:id="@+id/fastest_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stats_separator1"
+        android:layout_centerHorizontal="true"
+        android:text="@string/fastest_title"
+        android:textColor="#42aaf4"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"/>
+
+    <TextView android:id="@+id/fastest_easy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fastest_title"
+        android:layout_centerHorizontal="true"
+        android:text="@string/fastest_title"
+        android:textColor="#42aaf4"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-condensed"/>
+
+    <TextView android:id="@+id/fastest_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fastest_easy"
+        android:layout_centerHorizontal="true"
+        android:text="@string/fastest_title"
+        android:textColor="#42aaf4"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-condensed"/>
+
+    <TextView android:id="@+id/fastest_hard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fastest_medium"
+        android:layout_centerHorizontal="true"
+        android:text="@string/fastest_title"
+        android:textColor="#42aaf4"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-condensed"/>
+
+    <View
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</RelativeLayout>

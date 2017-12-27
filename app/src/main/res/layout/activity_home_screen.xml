@@ -1,13 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="0dp"
+    android:background="#000000"
+    tools:context="nettleton.sam.faceoffv2.HomeScreen">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top"
+    android:layout_alignParentTop="true"
+    android:padding="10dp"
+    android:orientation="horizontal">
+
+    <ImageView android:id="@+id/music_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="start"
+        android:src="@drawable/music_toggle"
+        tools:ignore="ContentDescription"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="musicToggle"/>
+
+    <ImageView
+        android:id="@+id/achievements_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="end"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="achievementsPage"
+        android:src="@drawable/achievements_button"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/settings_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="end"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="settingsPage"
+        android:src="@drawable/settings_button"
+        tools:ignore="ContentDescription" />
+
+</RelativeLayout>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:padding="30dp"
-    android:background="#000000"
-    tools:context="nettleton.sam.faceoffv2.HomeScreen">
+    android:padding="30dp">
 
     <TextView
         android:id="@+id/fullscreen_content"
@@ -54,3 +110,4 @@
         android:fontFamily="sans-serif-condensed"/>
 
 </LinearLayout>
+</RelativeLayout>
