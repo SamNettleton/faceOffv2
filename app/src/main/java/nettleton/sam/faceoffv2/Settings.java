@@ -108,7 +108,7 @@ public class Settings extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        final TextView musicAcknowledge = findViewById(R.id.music_acknowledge);
+        /*final TextView musicAcknowledge = findViewById(R.id.music_acknowledge);
         musicAcknowledge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -117,7 +117,7 @@ public class Settings extends AppCompatActivity {
                 i.setData(Uri.parse(url));
                 startActivity(i);
             }
-        });
+        });*/
     }
 
     public void emailDeveloper() {
@@ -131,4 +131,23 @@ public class Settings extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
         }
     }
+/*
+    @Override
+    protected void onPause() {
+        //musicPlayer.stop();
+        Intent svc = new Intent(this, BackgroundSoundService.class);
+        stopService(svc);
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        if (HomeScreen.backgroundMusic) {
+            Intent svc = new Intent(this, BackgroundSoundService.class);
+            startService(svc);
+            //Uri gameMusicUri = Uri.parse("android.resource://nettleton.sam.faceoffv2/raw/perth");
+            //musicPlayer.play(this, gameMusicUri,true, AudioManager.STREAM_MUSIC);
+        }
+        super.onResume();
+    }*/
 }

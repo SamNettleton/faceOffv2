@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Google Play game services IDs.
+Save this file as res/values/games-ids.xml in your project.
+-->
+<resources>
+    <!-- app_id -->
+    <string name="app_id" translatable="false">578362453617</string>
+    <!-- package_name -->
+    <string name="package_name" translatable="false">nettleton.sam.faceoffv2</string>
+    <!-- achievement Face Off Expert -->
+    <string name="achievement_face_off_expert" translatable="false">CgkI8dzayOoQEAIQAQ</string>
+    <!-- achievement Friends Become Enemies -->
+    <string name="achievement_friends_become_enemies" translatable="false">CgkI8dzayOoQEAIQAg</string>
+    <!-- achievement The First Steps -->
+    <string name="achievement_the_first_steps" translatable="false">CgkI8dzayOoQEAIQAw</string>
+    <!-- achievement Easy I -->
+    <string name="achievement_easy_i" translatable="false">CgkI8dzayOoQEAIQBA</string>
+    <!-- achievement On a Roll! -->
+    <string name="achievement_on_a_roll" translatable="false">CgkI8dzayOoQEAIQBQ</string>
+</resources>

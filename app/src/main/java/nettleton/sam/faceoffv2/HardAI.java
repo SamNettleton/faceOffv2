@@ -108,8 +108,10 @@ class HardAI extends StrategyFormat {
         Log.d("TESTING4", Integer.toString(priority4.size()));
         Log.d("TESTING5", Integer.toString(priority5.size()));
         Log.d("TESTING6", Integer.toString(priority6.size()));
+        int[] errorChances = {90, 80, 70, 60, 50, 40};
         for (int i = 0; i < priorityList.size(); i++) {
-            if (priorityList.get(i).size() != 0) {
+            int aiError = new Random().nextInt(100);
+            if ((priorityList.get(i).size() != 0) && (aiError < errorChances[i])) {
                 return (priorityList.get(i).get(new Random().nextInt(priorityList.get(i).size())));
             }
         }

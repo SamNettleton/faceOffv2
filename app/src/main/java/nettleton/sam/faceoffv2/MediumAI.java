@@ -67,10 +67,10 @@ class MediumAI extends StrategyFormat {
         if (priority1.size() > 0) {
             return priority1.get(new Random().nextInt(priority1.size()));
         }
-        if (priority2.size() > 0 && aiError < 75) {
+        if (priority2.size() > 0 && aiError < 60) {
             return priority2.get(new Random().nextInt(priority2.size()));
         }
-        if (priority3.size() > 0 && aiError < 50) {
+        if (priority3.size() > 0 && aiError < 40) {
             return priority3.get(new Random().nextInt(priority3.size()));
         }
         return available.get(new Random().nextInt(available.size()));

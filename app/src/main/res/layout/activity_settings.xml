@@ -130,7 +130,7 @@
         android:textSize="18sp"
         android:fontFamily="sans-serif-condensed"/>
 
-    <TextView android:id="@+id/music_acknowledge"
+    <!--<TextView android:id="@+id/music_acknowledge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -140,7 +140,7 @@
         android:textColor="#42aaf4"
         android:gravity="center"
         android:textSize="18sp"
-        android:fontFamily="sans-serif-condensed"/>
+        android:fontFamily="sans-serif-condensed"/>-->
 
     <View
         android:layout_gravity="bottom"

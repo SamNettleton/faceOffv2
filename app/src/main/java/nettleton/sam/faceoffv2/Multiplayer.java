@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+
 public class Multiplayer extends AppCompatActivity {
 
     @Override
@@ -46,11 +48,12 @@ public class Multiplayer extends AppCompatActivity {
                     HomeScreen.gameType = "TUTORIALGAME";
                     startActivity(i);
                 } else {
-                    //Intent i = new Intent(getApplicationContext(),Game.class);
+                    Intent i = new Intent(getApplicationContext(),MGame.class);
                     HomeScreen.gameType = "ONLINEGAME";
-                    //startActivity(i);
+                    startActivity(i);
                 }
             }
         });
     }
+
 }

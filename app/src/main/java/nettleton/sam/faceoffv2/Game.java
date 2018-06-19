@@ -58,7 +58,7 @@ public class Game extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-        if (turnCount > 1) {
+        if (turnCount > 1 && !gameFinished) {
             AlertDialog.Builder ab = new AlertDialog.Builder(Game.this);
             ab.setTitle("Confirm Exit");
             ab.setMessage("Are you sure you want to end the game?");
@@ -79,6 +79,7 @@ public class Game extends AppCompatActivity {
             ab.show();
         }
         else {
+            resetBoard();
             Game.this.finish();
         }
     }

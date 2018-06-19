@@ -12,6 +12,7 @@ import android.os.Environment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -42,10 +43,13 @@ public class HomeScreen extends AppCompatActivity {
         HomeScreen.tutorialCompleted = settingSave.getBoolean("tutorialCompleted", false);
         HomeScreen.backgroundMusic = settingSave.getBoolean("backgroundMusic", true);
 
-        if (backgroundMusic) {
-            Uri gameMusicUri = Uri.parse("android.resource://nettleton.sam.faceoffv2/raw/perth");
-            musicPlayer.play(this, gameMusicUri,true, AudioManager.STREAM_MUSIC);
-        }
+        /*if (backgroundMusic) {
+            Intent svc = new Intent(this, BackgroundSoundService.class);
+            startService(svc); //OR stopService(svc);
+            Log.d("MUSICTEST", "Music should be playing!");
+            //Uri gameMusicUri = Uri.parse("android.resource://nettleton.sam.faceoffv2/raw/perth");
+            //musicPlayer.play(this, gameMusicUri,true, AudioManager.STREAM_MUSIC);
+        }*/
 
         ImageView cubeImage = (ImageView) findViewById(R.id.cube_animation);
         cubeImage.setBackgroundResource(R.drawable.cube_animation);
@@ -84,20 +88,24 @@ public class HomeScreen extends AppCompatActivity {
         }
     }
 
-    public void musicToggle(View v) {
+    /*public void musicToggle(View v) {
+        Intent svc = new Intent(this, BackgroundSoundService.class);
         if (backgroundMusic) {
-            musicPlayer.stop();
+            Log.d("MUSICTEST", "Music should be off!");
+            //musicPlayer.stop();
+            stopService(svc);
             backgroundMusic = false;
         } else {
-            Uri gameMusicUri = Uri.parse("android.resource://nettleton.sam.faceoffv2/raw/perth");
-            musicPlayer.play(this, gameMusicUri,true, AudioManager.STREAM_MUSIC);
+            //Uri gameMusicUri = Uri.parse("android.resource://nettleton.sam.faceoffv2/raw/perth");
+            //musicPlayer.play(this, gameMusicUri,true, AudioManager.STREAM_MUSIC);
+            startService(svc); //OR stopService(svc);
             backgroundMusic = true;
         }
         SharedPreferences settingSave = this.getSharedPreferences("settingSave", MODE_PRIVATE);
         SharedPreferences.Editor edit = settingSave.edit();
         edit.putBoolean("backgroundMusic", backgroundMusic);
         edit.apply();
-    }
+    }*/
 
     public void achievementsPage(View v) {
         Intent i = new Intent(getApplicationContext(),Achievements.class);
@@ -109,18 +117,21 @@ public class HomeScreen extends AppCompatActivity {
         startActivity(i);
     }
 
-    /*@Override
+/*    @Override
     protected void onPause() {
-        musicPlayer.stop();
+        //musicPlayer.stop();
+        Intent svc = new Intent(this, BackgroundSoundService.class);
+        stopService(svc);
         super.onPause();
     }
 
     @Override
     protected void onResume() {
         if (backgroundMusic) {
-            Uri gameMusicUri = Uri.parse("android.resource://nettleton.sam.faceoffv2/raw/perth");
-            musicPlayer.play(this, gameMusicUri,true, AudioManager.STREAM_MUSIC);
-            backgroundMusic = true;
+            Intent svc = new Intent(this, BackgroundSoundService.class);
+            startService(svc);
+            //Uri gameMusicUri = Uri.parse("android.resource://nettleton.sam.faceoffv2/raw/perth");
+            //musicPlayer.play(this, gameMusicUri,true, AudioManager.STREAM_MUSIC);
         }
         super.onResume();
     }*/

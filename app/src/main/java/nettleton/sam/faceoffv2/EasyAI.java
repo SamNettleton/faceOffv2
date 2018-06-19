@@ -53,7 +53,7 @@ class EasyAI extends StrategyFormat {
             }
         }
         int aiError = new Random().nextInt(100);
-        if (suggested.size() != 0 && aiError < 60) {
+        if (suggested.size() != 0 && aiError < 50) {
             return suggested.get(new Random().nextInt(suggested.size()));
         } else {
             //int aiChoice = available.get(new Random().nextInt(available.size()));
